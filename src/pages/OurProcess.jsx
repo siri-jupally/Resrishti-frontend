@@ -56,6 +56,17 @@ const OurProcess = () => {
         }
     ];
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     useEffect(() => {
         if (!containerRef.current || !pathRef.current) return;
 
@@ -85,26 +96,37 @@ const OurProcess = () => {
                 0
             );
 
-            // Animate each step along the path
+            // Animate each step marker and card
             processSteps.forEach((step, index) => {
-                const stepEl = `.step-${step.id}`;
+                const markerEl = `.step-${step.id}-marker`;
+                const cardEl = `.step-${step.id}`;
                 const startProgress = index / processSteps.length;
                 const endProgress = (index + 1) / processSteps.length;
 
-                // Fade in and scale
+                // Marker appears and scales
                 tl.fromTo(
-                    stepEl,
-                    { opacity: 0, scale: 0.5 },
-                    { opacity: 1, scale: 1, duration: 0.15, ease: 'back.out(2)' },
+                    markerEl,
+                    { opacity: 0, scale: 0 },
+                    { opacity: 1, scale: 1, duration: 0.1, ease: 'back.out(2)' },
                     startProgress
                 );
 
-                // Fade out
-                tl.to(
-                    stepEl,
-                    { opacity: 0.3, scale: 0.9, duration: 0.1 },
-                    endProgress - 0.05
+                // Card appears ONLY when step is active
+                tl.fromTo(
+                    cardEl,
+                    { opacity: 0, scale: 0.5, y: 20 },
+                    { opacity: 1, scale: 1, y: 0, duration: 0.15, ease: 'back.out(1.5)' },
+                    startProgress + 0.05
                 );
+
+                // Card fades out when moving to next step
+                if (index < processSteps.length - 1) {
+                    tl.to(
+                        cardEl,
+                        { opacity: 0, scale: 0.8, duration: 0.1 },
+                        endProgress - 0.05
+                    );
+                }
             });
 
             // Floating particles animation
@@ -146,10 +168,10 @@ const OurProcess = () => {
             </section>
 
             {/* Infinity Loop Animation Section */}
-            <section ref={containerRef} className="relative h-screen bg-slate-950 overflow-hidden">
+            <div ref={containerRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center pb-32 md:pb-0">
 
                 {/* Animated Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-950/20 to-slate-950"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black"></div>
 
                 {/* Floating Particles */}
                 {[...Array(20)].map((_, i) => (
@@ -167,73 +189,75 @@ const OurProcess = () => {
                 <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-emerald-500/20 to-transparent"></div>
                 <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-teal-500/20 to-transparent"></div>
 
-                {/* SVG Infinity Path */}
-                <svg
-                    ref={pathRef}
-                    className="absolute inset-0 w-full h-full"
-                    viewBox="0 0 1000 600"
-                    preserveAspectRatio="xMidYMid meet"
-                >
-                    <defs>
-                        {/* Glow Filter */}
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-                            <feMerge>
-                                <feMergeNode in="coloredBlur" />
-                                <feMergeNode in="SourceGraphic" />
-                            </feMerge>
-                        </filter>
+                {/* Content Container - Maintains Aspect Ratio */}
+                <div className="relative w-full max-w-7xl aspect-[10/7] mx-auto flex items-center justify-center">
 
-                        {/* Gradient for path */}
-                        <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#10b981" />
-                            <stop offset="25%" stopColor="#06b6d4" />
-                            <stop offset="50%" stopColor="#f97316" />
-                            <stop offset="75%" stopColor="#a855f7" />
-                            <stop offset="100%" stopColor="#14b8a6" />
-                        </linearGradient>
-                    </defs>
+                    {/* SVG Infinity Path */}
+                    <svg
+                        ref={pathRef}
+                        className="absolute inset-0 w-full h-full"
+                        viewBox="0 0 1000 700"
+                        preserveAspectRatio="xMidYMid meet"
+                    >
+                        <defs>
+                            {/* Glow Filter */}
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
 
-                    {/* Base Infinity Path (dim) */}
-                    <path
-                        d="M 250,300 C 250,150 350,150 500,300 C 650,450 750,450 750,300 C 750,150 650,150 500,300 C 350,450 250,450 250,300 Z"
-                        fill="none"
-                        stroke="#1e293b"
-                        strokeWidth="3"
-                        opacity="0.3"
-                    />
+                            {/* Gradient for path */}
+                            <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#10b981" />
+                                <stop offset="25%" stopColor="#06b6d4" />
+                                <stop offset="50%" stopColor="#f97316" />
+                                <stop offset="75%" stopColor="#a855f7" />
+                                <stop offset="100%" stopColor="#14b8a6" />
+                            </linearGradient>
+                        </defs>
 
-                    {/* Animated Glowing Path */}
-                    <path
-                        className="infinity-glow"
-                        d="M 250,300 C 250,150 350,150 500,300 C 650,450 750,450 750,300 C 750,150 650,150 500,300 C 350,450 250,450 250,300 Z"
-                        fill="none"
-                        stroke="url(#pathGradient)"
-                        strokeWidth="4"
-                        strokeDasharray="2000"
-                        strokeDashoffset="2000"
-                        filter="url(#glow)"
-                        opacity="0.8"
-                    />
-                </svg>
+                        {/* Base Infinity Path (dim) */}
+                        <path
+                            d="M 250,380 C 250,230 350,230 500,380 C 650,530 750,530 750,380 C 750,230 650,230 500,380 C 350,530 250,530 250,380 Z"
+                            fill="none"
+                            stroke="#1e293b"
+                            strokeWidth="3"
+                            opacity="0.3"
+                        />
 
-                {/* Process Steps */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative w-full h-full">
+                        {/* Animated Glowing Path */}
+                        <path
+                            className="infinity-glow"
+                            d="M 250,380 C 250,230 350,230 500,380 C 650,530 750,530 750,380 C 750,230 650,230 500,380 C 350,530 250,530 250,380 Z"
+                            fill="none"
+                            stroke="url(#pathGradient)"
+                            strokeWidth="4"
+                            strokeDasharray="2000"
+                            strokeDashoffset="2000"
+                            filter="url(#glow)"
+                            opacity="0.8"
+                        />
+                    </svg>
+
+                    {/* Process Steps */}
+                    <div className="absolute inset-0 pointer-events-none">
                         {processSteps.map((step, index) => {
                             const Icon = step.icon;
 
                             // Position step markers ON the infinity path
                             const markerPositions = [
                                 { left: '25%', top: '50%' },   // Step 1: Left start
-                                { left: '37.5%', top: '35%' }, // Step 2: Left top curve
-                                { left: '50%', top: '50%' },   // Step 3: Center crossing
+                                { left: '37.5%', top: '40%' }, // Step 2: Left top curve
+                                { left: '50%', top: '53%' },   // Step 3: Center crossing
                                 { left: '64.5%', top: '68%' }, // Step 4: Right bottom curve
                                 { left: '75%', top: '50%' }    // Step 5: Right end
                             ];
 
-                            // Offset cards OUTSIDE the path
-                            const cardOffsets = [
+                            // Offset cards OUTSIDE the path - Desktop
+                            const desktopCardOffsets = [
                                 { offsetX: '-200px', offsetY: '0px' },      // Step 1: Left
                                 { offsetX: '180px', offsetY: '-80px' },      // Step 2: Top
                                 { offsetX: '0px', offsetY: '180px' },       // Step 3: Bottom
@@ -241,15 +265,24 @@ const OurProcess = () => {
                                 { offsetX: '200px', offsetY: '0px' }        // Step 5: Right
                             ];
 
+                            // Offset cards for Mobile - Positioned closer and generally below/center
+                            const mobileCardOffsets = [
+                                { offsetX: '0px', offsetY: '0px' },
+                                { offsetX: '0px', offsetY: '0px' },
+                                { offsetX: '0px', offsetY: '0px' },
+                                { offsetX: '0px', offsetY: '0px' },
+                                { offsetX: '0px', offsetY: '0px' }
+                            ];
+
                             const markerPos = markerPositions[index];
-                            const cardOffset = cardOffsets[index];
+                            const cardOffset = isMobile ? mobileCardOffsets[index] : desktopCardOffsets[index];
                             const isActive = activeStep === index;
 
                             return (
                                 <div key={step.id}>
                                     {/* Step Marker ON the path */}
                                     <div
-                                        className={`step-${step.id}-marker absolute transform -translate-x-1/2 -translate-y-1/2 z-20`}
+                                        className={`step-${step.id}-marker absolute transform -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-auto`}
                                         style={{ left: markerPos.left, top: markerPos.top }}
                                     >
                                         {/* Glow Effect */}
@@ -258,64 +291,96 @@ const OurProcess = () => {
                                         )}
 
                                         {/* Icon Circle on Path */}
-                                        <div className={`relative w-16 h-16 bg-gradient-to-br ${step.color} rounded-full flex items-center justify-center shadow-2xl border-4 ${isActive ? 'border-white scale-125' : 'border-slate-800'} transition-all duration-500`}>
+                                        <div className={`relative w-12 h-12 bg-gradient-to-br ${step.color} rounded-full flex items-center justify-center shadow-2xl border-4 ${isActive ? 'border-white scale-125' : 'border-slate-800'} transition-all duration-500`}>
                                             <Icon className="w-8 h-8 text-white" />
 
                                             {/* Step Number Badge */}
-                                            <div className="absolute -top-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center text-slate-900 font-black text-xs shadow-lg">
+                                            <div className="absolute -top-1 -right-1 w-4 h-4 bg-white rounded-full flex items-center justify-center text-slate-900 font-black text-xs shadow-lg">
                                                 {step.id}
                                             </div>
                                         </div>
                                     </div>
 
-                                    {/* Card OUTSIDE the path */}
-                                    <div
-                                        className={`step-${step.id} absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 z-10`}
-                                        style={{
-                                            left: markerPos.left,
-                                            top: markerPos.top,
-                                            transform: `translate(calc(-50% + ${cardOffset.offsetX}), calc(-50% + ${cardOffset.offsetY}))`
-                                        }}
-                                    >
-                                        {/* Connecting Line from marker to card */}
-                                        <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" width="250" height="200" style={{ zIndex: -1 }}>
-                                            <line
-                                                x1="125"
-                                                y1="100"
-                                                x2={cardOffset.offsetX === '0px' ? '125' : (cardOffset.offsetX.includes('-') ? '225' : '25')}
-                                                y2={cardOffset.offsetY === '0px' ? '100' : (cardOffset.offsetY.includes('-') ? '200' : '0')}
-                                                stroke={isActive ? '#10b981' : '#334155'}
-                                                strokeWidth="2"
-                                                strokeDasharray="4 4"
-                                                opacity={isActive ? '0.6' : '0.3'}
-                                            />
-                                        </svg>
-
-                                        {/* Step Card */}
-                                        <div className={`relative bg-slate-900/95 backdrop-blur-md border-2 ${isActive ? 'border-emerald-400 shadow-2xl shadow-emerald-500/50' : 'border-slate-700'} rounded-xl p-2 w-56 transition-all duration-500 ${isActive ? 'scale-105' : 'scale-95 opacity-70'}`}>
-
-                                            {/* Content */}
-                                            <h3 className={`text-base font-bold mb-2 ${isActive ? 'text-emerald-400' : 'text-white'} transition-colors`}>
-                                                {step.title}
-                                            </h3>
-                                            <p className="text-slate-400 text-xs leading-relaxed">
-                                                {step.description}
-                                            </p>
-
-                                            {/* Active Indicator */}
-                                            {isActive && (
-                                                <div className="mt-3 flex items-center gap-2 text-emerald-400 text-xs font-semibold">
-                                                    <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
-                                                    <span>Active</span>
-                                                </div>
-                                            )}
+                                    {/* Connecting Line (Dashed) - Desktop Only */}
+                                    {!isMobile && (
+                                        <div
+                                            className={`step-${step.id} absolute z-10 pointer-events-none transition-opacity duration-300`}
+                                            style={{
+                                                left: markerPos.left,
+                                                top: markerPos.top,
+                                                opacity: isActive ? 1 : 0
+                                            }}
+                                        >
+                                            <svg width="400" height="400" className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 overflow-visible">
+                                                <line
+                                                    x1="50%"
+                                                    y1="50%"
+                                                    x2={`calc(50% + ${cardOffset.offsetX})`}
+                                                    y2={`calc(50% + ${cardOffset.offsetY})`}
+                                                    stroke={isActive ? "#34d399" : "#475569"}
+                                                    strokeWidth="2"
+                                                    strokeDasharray="4 4"
+                                                />
+                                            </svg>
                                         </div>
-                                    </div>
+                                    )}
+
+                                    {/* Step Card - Positioned Offset - Desktop Only */}
+                                    {!isMobile && (
+                                        <div
+                                            className={`step-${step.id} absolute transform -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-auto`}
+                                            style={{
+                                                left: `calc(${markerPos.left} + ${cardOffset.offsetX})`,
+                                                top: `calc(${markerPos.top} + ${cardOffset.offsetY})`
+                                            }}
+                                        >
+                                            {/* Step Card */}
+                                            <div className={`relative bg-slate-900/95 backdrop-blur-md border-2 ${isActive ? 'border-emerald-400 shadow-2xl shadow-emerald-500/50' : 'border-slate-700'} rounded-xl p-3 md:p-4 w-48 md:w-56 transition-all duration-500 ${isActive ? 'scale-105' : 'scale-95 opacity-70'}`}>
+
+                                                {/* Content */}
+                                                <h3 className={`text-sm md:text-base font-bold mb-1 md:mb-2 ${isActive ? 'text-emerald-400' : 'text-white'} transition-colors`}>
+                                                    {step.title}
+                                                </h3>
+                                                <p className="text-xs text-slate-300 leading-relaxed">
+                                                    {step.description}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             );
                         })}
                     </div>
                 </div>
+
+                {/* Mobile Active Step Card - Fixed at Bottom */}
+                {isMobile && (
+                    <div className="absolute bottom-36 left-0 w-full px-4 z-40">
+                        <div className="bg-slate-900/90 backdrop-blur-xl border border-emerald-500/30 rounded-2xl p-6 shadow-2xl shadow-emerald-900/20 transform transition-all duration-500">
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center border border-emerald-500/50 shrink-0">
+                                    {React.createElement(processSteps[activeStep].icon, {
+                                        className: "w-6 h-6 text-emerald-400"
+                                    })}
+                                </div>
+                                <div>
+                                    <div className="flex items-center gap-2 mb-1">
+                                        <span className="text-xs font-bold text-emerald-500 uppercase tracking-wider">
+                                            Step {processSteps[activeStep].id}
+                                        </span>
+                                        <div className="h-px flex-1 bg-emerald-500/20"></div>
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white mb-2">
+                                        {processSteps[activeStep].title}
+                                    </h3>
+                                    <p className="text-sm text-slate-300 leading-relaxed">
+                                        {processSteps[activeStep].description}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 {/* Scroll Indicator */}
                 <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
@@ -332,7 +397,7 @@ const OurProcess = () => {
                         style={{ width: `${(activeStep / (processSteps.length - 1)) * 100}%` }}
                     ></div>
                 </div>
-            </section>
+            </div>
 
             {/* Summary Section */}
             <section className="py-20 bg-slate-900">
