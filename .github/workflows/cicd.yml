@@ -1,0 +1,52 @@
+name: Deploy Vite React Application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      image: sirijupally/reactjs-app:latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+      - name: Build Docker image
+        env:
+          VITE_SERVER_BASE_URL: ${{ secrets.VITE_SERVER_BASE_URL }}   # secret that contains your API base URL
+        run: |
+          docker build \
+            --build-arg VITE_NODE_ENV='production' \
+            --build-arg VITE_SERVER_BASE_URL="${VITE_SERVER_BASE_URL}" \
+            -t sirijupally/reactjs-app:latest .
+
+      - name: Push image to Docker Hub
+        run: |
+          docker push sirijupally/reactjs-app:latest
+
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Pull image from Docker Hub
+        run: docker pull sirijupally/reactjs-app:latest
+
+      - name: Stop and remove old container (if exists)
+        run: |
+          if [ "$(docker ps -a -q -f name=vite-react-container)" ]; then
+            docker rm -f vite-react-container || true
+          fi
+
+      - name: Run Docker container
+        # Map EC2 port 3000 -> container 80 (adjust as you wish)
+        run: docker run -d -p 3000:80 --name vite-react-container sirijupally/reactjs-app:latest
