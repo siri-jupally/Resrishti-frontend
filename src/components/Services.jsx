@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Leaf, Droplets, Flame, Fuel, ArrowRight } from 'lucide-react';
+import { Leaf, Droplets, Flame, Fuel, ArrowRight, Package, Layers, Cpu } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -101,13 +101,22 @@ const Services = () => {
       hoverShadow: 'hover:shadow-blue-500/20'
     },
     {
-      icon: Flame,
-      title: 'Pyrolysis Technology',
-      description: 'Thermal decomposition process that converts plastic and rubber waste into valuable fuel oil and carbon black.',
-      color: 'from-orange-500 to-red-600',
-      bgColor: 'bg-orange-50',
-      iconColor: 'text-orange-600',
-      hoverShadow: 'hover:shadow-orange-500/20'
+      icon: Package,
+      title: 'Dry Waste Recycling',
+      description: 'Comprehensive recycling of plastic, thermocol, and paper waste into high-quality raw materials.',
+      color: 'from-teal-500 to-emerald-600',
+      bgColor: 'bg-teal-50',
+      iconColor: 'text-teal-600',
+      hoverShadow: 'hover:shadow-teal-500/20'
+    },
+    {
+      icon: Layers,
+      title: 'Foam & E-waste Recycling',
+      description: 'Specialized recovery of PU foam and authorized collection of electronic waste.',
+      color: 'from-pink-500 to-purple-600',
+      bgColor: 'bg-pink-50',
+      iconColor: 'text-pink-600',
+      hoverShadow: 'hover:shadow-pink-500/20'
     },
     {
       icon: Fuel,

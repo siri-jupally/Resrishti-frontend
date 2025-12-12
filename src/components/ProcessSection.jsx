@@ -188,7 +188,7 @@ const ProcessSection = () => {
       icon: Cog,
       step: '03',
       title: 'Processing',
-      description: 'Advanced treatment using AAC, AGR, Pyrolysis, or AFRF based on waste type',
+      description: 'Advanced treatment using AAC, AGR, Advanced Thermal Conversion, or AFRF based on waste type',
       color: 'from-emerald-500 to-teal-500',
       iconBg: 'bg-emerald-50',
       iconColor: 'text-emerald-600'

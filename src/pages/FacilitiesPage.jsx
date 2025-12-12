@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
-import { Leaf, Zap, Droplets, Flame, Recycle, Sun, Shield, ArrowRight, CheckCircle, Factory, TrendingUp } from 'lucide-react';
+import { Leaf, Zap, Droplets, Flame, Recycle, Sun, Shield, ArrowRight, CheckCircle, Factory, TrendingUp, Package, Layers, Cpu } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Button } from '../components/ui/button';
@@ -57,28 +57,29 @@ const FacilitiesPage = () => {
             gradient: 'from-blue-600 to-cyan-600',
             link: '/facilities/agr'
         },
+
         {
-            id: 'pyrolysis',
-            icon: Flame,
-            title: 'Advanced Pyrolysis Unit',
-            subtitle: 'Plastic-to-Fuel Conversion',
-            capacity: '500 kg/day',
-            output: '45% fuel yield',
-            description: 'Thermal decomposition technology processing non-recyclable plastics into industrial fuel oil, carbon black, and syngas.',
-            highlights: ['Fuel oil recovery', 'Carbon black', 'Syngas generation', 'Energy self-sufficient'],
-            color: 'orange',
-            gradient: 'from-orange-600 to-red-600',
-            link: '/facilities/pyrolysis'
+            id: 'recycling-foam-ewaste',
+            icon: Layers,
+            title: 'Foam & E-waste Recycling',
+            subtitle: 'Specialized Material Recovery',
+            capacity: 'Collection & Processing',
+            output: 'Safe Disposal/Recovery',
+            description: 'Integrated facility for PU foam recovery and authorized e-waste collection. We ensure eco-friendly recycling of mattresses/foam and safe transfer of electronic waste to certified recyclers.',
+            highlights: ['PU Foam Recovery', 'Mattress Recycling', 'Authorized E-waste Collection', 'Data Security'],
+            color: 'pink',
+            gradient: 'from-pink-600 to-rose-600',
+            link: '/facilities/foam-ewaste-recycling'
         },
         {
-            id: 'recycling',
+            id: 'recycling-dry-waste',
             icon: Recycle,
             title: 'Dry Waste Recycling',
-            subtitle: 'Material Recovery Facility',
-            capacity: '3+ tons/day',
-            output: '95% accuracy',
-            description: 'Comprehensive recycling infrastructure for plastic, thermocol, paper, and cardboard with automated segregation and reprocessing.',
-            highlights: ['Plastic granules', 'Thermocol recovery', 'Paper recycling', 'Automated sorting'],
+            subtitle: 'Bulk Collection Service',
+            capacity: 'Bulk Collection',
+            output: 'Authorized Transfer',
+            description: 'We are bulk waste collectors for paper and cardboard. We do not recycle paper but ensure it reaches authorized recycling mills.',
+            highlights: ['Bulk Collection', 'Cardboard Recovery', 'Paper Sorting', 'Authorized Transfer'],
             color: 'teal',
             gradient: 'from-teal-600 to-emerald-600',
             link: '/facilities/recycling'
@@ -91,13 +92,14 @@ const FacilitiesPage = () => {
             title: 'Solar Power Infrastructure',
             desc: 'Grid-connected solar photovoltaic system providing renewable energy for all facility operations, reducing carbon footprint and operational costs.',
             stat: 'Carbon Neutral Operations'
-        },
-        {
-            icon: Shield,
-            title: 'EHS Compliance Systems',
-            desc: 'Comprehensive Environment, Health & Safety protocols with CSIR-IICT validation, TGPCB compliance, and continuous monitoring systems.',
-            stat: 'Full Regulatory Compliance'
         }
+        // ,
+        // {
+        //     icon: Shield,
+        //     title: 'EHS Compliance Systems',
+        //     desc: 'Comprehensive Environment, Health & Safety protocols with CSIR-IICT validation, TGPCB compliance, and continuous monitoring systems.',
+        //     stat: 'Full Regulatory Compliance'
+        // }
     ];
 
     const stats = [

@@ -25,7 +25,7 @@ const OurProcess = () => {
         {
             id: 2,
             title: 'Processing & Treatment',
-            description: 'Each waste stream is processed through specialized technologies: composting, biogas generation, pyrolysis, and recycling.',
+            description: 'Each waste stream is processed through specialized technologies: composting, biogas generation, thermal conversion, and recycling.',
             icon: Zap,
             color: 'from-blue-500 to-cyan-500',
             position: 0.25 // First curve

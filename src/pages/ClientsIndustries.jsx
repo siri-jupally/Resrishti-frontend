@@ -10,7 +10,8 @@ const ClientsIndustries = () => {
         { title: "Corporate Offices", description: "Zero-waste programs for office buildings and tech parks." },
         { title: "Hospitality", description: "Sustainable waste handling for hotels, resorts, and restaurants." },
         { title: "Retail", description: "Packaging recycling and waste reduction for retail chains." },
-        { title: "Construction", description: "Construction and demolition waste recovery and recycling." }
+        { title: "Construction", description: "Construction and demolition waste recovery and recycling." },
+        { title: "Major Clients: Airports & Railway Stations", description: "Specialized waste management solutions for high-traffic transport hubs ensuring cleanliness and sustainability." }
     ];
 
     return (

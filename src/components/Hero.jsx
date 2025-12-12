@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ArrowRight, Leaf, Recycle, TrendingUp, CheckCircle, Award, Building2 } from 'lucide-react';
 import { Button } from './ui/button';
@@ -110,16 +111,27 @@ const Hero = () => {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
-              <Button className="group bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-10 py-6 text-lg font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-emerald-500/30 hover:scale-105 transition-all duration-300">
-                <span>View Impact Dashboard</span>
-                <TrendingUp className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 flex-wrap">
+              <Link to="/contact">
+                <Button className="group bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-8 py-4 text-lg font-bold rounded-xl shadow-lg hover:shadow-emerald-500/30 hover:scale-105 transition-all duration-300">
+                  <span>Book a Pickup</span>
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
 
-              <Button className="group border-2 border-slate-300 bg-white hover:bg-slate-50 text-slate-900 px-10 py-6 text-lg font-bold rounded-2xl shadow-lg hover:shadow-xl hover:border-emerald-500 transition-all duration-300 hover:scale-105">
-                <span>Schedule Facility Tour</span>
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link to="/contact">
+                <Button className="group bg-white border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-50 px-8 py-4 text-lg font-bold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <span>Partner with Us</span>
+                  <Building2 className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+                </Button>
+              </Link>
+
+              <Link to="/process">
+                <Button className="group bg-slate-100 hover:bg-slate-200 text-slate-700 border-2 border-slate-200 px-8 py-4 text-lg font-bold rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
+                  <span>Know Our Recycling Process</span>
+                  <Recycle className="ml-2 w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
+                </Button>
+              </Link>
             </div>
 
             {/* Stats Cards - Compact

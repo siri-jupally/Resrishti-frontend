@@ -75,12 +75,13 @@ const IndustryPartnersSection = () => {
   }, []);
 
   const industries = [
+    { name: 'Airports & Railway Stations', count: '40+', icon: '✈️', icon2: '🚂' },
     { name: 'FMCG & Consumer Goods', count: '35+', icon: '🏪' },
     { name: 'Hospitality & Restaurants', count: '40+', icon: '🏨' },
     { name: 'Manufacturing', count: '28+', icon: '🏭' },
-    { name: 'Healthcare', count: '15+', icon: '🏥' },
     { name: 'Municipal Bodies', count: '12+', icon: '🏛️' },
     { name: 'Textile & Apparel', count: '20+', icon: '👔' }
+
   ];
 
   return (

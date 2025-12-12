@@ -86,21 +86,27 @@ const Footer = () => {
             <h3 className="text-white font-bold mb-4 text-lg">Our Technologies</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/facilities" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                <Link to="/facilities/aac" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
                   <Recycle className="w-4 h-4 text-emerald-500" />
                   Anaerobic Composting (AAC)
                 </Link>
               </li>
               <li>
-                <Link to="/facilities" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                <Link to="/facilities/agr" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
                   <Recycle className="w-4 h-4 text-emerald-500" />
                   Biogas Generation (AGR)
                 </Link>
               </li>
               <li>
-                <Link to="/facilities" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                <Link to="/facilities/recycling" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
                   <Recycle className="w-4 h-4 text-emerald-500" />
-                  Pyrolysis Technology
+                  Dry Waste Recycling
+                </Link>
+              </li>
+              <li>
+                <Link to="/facilities/foam-ewaste-recycling" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                  <Recycle className="w-4 h-4 text-emerald-500" />
+                  Foam & E-waste Recycling
                 </Link>
               </li>
               <li>
@@ -131,8 +137,12 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-slate-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-slate-800 py-8">
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            {/* Removed redundant credits section */}
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-slate-800">
             <p className="text-slate-400 text-sm">
               © {currentYear} GreenEarth Integrated Facility Pvt. Ltd. All rights reserved.
             </p>

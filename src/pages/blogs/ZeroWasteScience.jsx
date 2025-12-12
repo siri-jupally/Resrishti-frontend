@@ -93,9 +93,9 @@ const ZeroWasteScience = () => {
                                     For organic waste, we utilize <strong>Accelerated Anaerobic Composting (AAC)</strong>. This isn't your backyard compost pile. We use a proprietary consortium of thermophilic microbes that thrive at high temperatures (55-65°C). These microbes break down complex carbohydrates, proteins, and lipids at 3x the speed of conventional composting, resulting in a nutrient-dense soil amendment that is pathogen-free.
                                 </p>
 
-                                <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Thermodynamics of Pyrolysis</h2>
+                                <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Thermodynamics of Thermal Conversion</h2>
                                 <p className="text-slate-600 mb-6 leading-relaxed">
-                                    Non-recyclable plastics pose the biggest challenge. They are energy-dense but chemically stable, making them persistent pollutants. Our solution is <strong>Pyrolysis</strong>—thermal decomposition in the absence of oxygen.
+                                    Non-recyclable plastics pose the biggest challenge. They are energy-dense but chemically stable, making them persistent pollutants. Our solution is <strong>Advanced Thermal Conversion</strong>—thermal decomposition in the absence of oxygen.
                                 </p>
                                 <blockquote className="border-l-4 border-emerald-500 pl-6 italic text-xl text-slate-700 my-8 bg-slate-50 py-4 pr-4 rounded-r-lg">
                                     "We don't burn plastic; we depolymerize it. By carefully controlling temperature and pressure, we revert the polymer chains back into their original hydrocarbon forms."
@@ -104,9 +104,9 @@ const ZeroWasteScience = () => {
                                     This process yields three valuable outputs:
                                 </p>
                                 <ul className="list-disc pl-6 space-y-2 text-slate-600 mb-8">
-                                    <li><strong>Pyrolysis Oil:</strong> A high-calorific fuel suitable for industrial boilers and furnaces.</li>
+                                    <li><strong>Recycled Fuel Oil:</strong> A high-calorific fuel suitable for industrial boilers and furnaces.</li>
                                     <li><strong>Carbon Black:</strong> Used as a reinforcing filler in tires and other rubber products.</li>
-                                    <li><strong>Syngas:</strong> A mixture of hydrogen and carbon monoxide used to power the pyrolysis unit itself, making the process energy-neutral.</li>
+                                    <li><strong>Syngas:</strong> A mixture of hydrogen and carbon monoxide used to power the conversion unit itself, making the process energy-neutral.</li>
                                 </ul>
 
                                 <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6">The Biological Engine: AGR</h2>
@@ -160,7 +160,7 @@ const ZeroWasteScience = () => {
                                 <h3 className="font-bold text-slate-900 mb-6">Related Articles</h3>
                                 <div className="space-y-6">
                                     {[
-                                        { title: "Pyrolysis Technology: Converting Plastic to Fuel", date: "Nov 10, 2024" },
+                                        { title: "Advanced Recycling: Converting Plastic to Fuel", date: "Nov 10, 2024" },
                                         { title: "The Role of AI in Modern Waste Sorting", date: "Oct 12, 2024" },
                                         { title: "Biogas Generation: Turning Organic Waste into Energy", date: "Oct 20, 2024" }
                                     ].map((item, idx) => (

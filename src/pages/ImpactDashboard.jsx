@@ -94,6 +94,7 @@ const ImpactDashboard = () => {
                 </div>
             </section>
 
+
             {/* Visual Impact Section - Split Layout */}
             <section className="py-24 bg-slate-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -158,6 +159,64 @@ const ImpactDashboard = () => {
                                 </div>
                                 <p className="text-sm text-slate-500">Audited and verified by leading environmental agencies.</p>
                             </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Operational Scale Metrics */}
+            <section className="py-20 bg-slate-900 text-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl lg:text-5xl font-bold mb-4">Operational Scale Metrics</h2>
+                        <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                            Real numbers demonstrating our capacity and reach.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-8">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center hover:border-emerald-500/50 transition-all"
+                        >
+                            <div className="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                                <Users className="w-8 h-8 text-blue-400" />
+                            </div>
+                            <h3 className="text-5xl font-bold mb-2">80+</h3>
+                            <p className="text-xl font-semibold text-blue-300 mb-2">Corporate Clients Served</p>
+                            <p className="text-slate-400">80+ corporate and industrial clients across Hyderabad</p>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center hover:border-emerald-500/50 transition-all"
+                        >
+                            <div className="w-16 h-16 bg-purple-500/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                                <Globe className="w-8 h-8 text-purple-400" />
+                            </div>
+                            <h3 className="text-5xl font-bold mb-2">Major</h3>
+                            <p className="text-xl font-semibold text-purple-300 mb-2">Institutional Partnerships</p>
+                            <p className="text-slate-400">Waste management operations at major Airports & Railway Stations</p>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 text-center hover:border-emerald-500/50 transition-all"
+                        >
+                            <div className="w-16 h-16 bg-amber-500/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                                <Award className="w-8 h-8 text-amber-400" />
+                            </div>
+                            <h3 className="text-5xl font-bold mb-2">8+</h3>
+                            <p className="text-xl font-semibold text-amber-300 mb-2">Years of Experience</p>
+                            <p className="text-slate-400">8+ years in the waste management and recycling sector</p>
                         </motion.div>
                     </div>
                 </div>

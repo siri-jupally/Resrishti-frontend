@@ -49,7 +49,7 @@ const RecyclingPage = () => {
             applications: ['Packaging materials', 'Insulation boards', 'Construction materials', 'Protective packaging']
         },
         {
-            title: 'Paper & Cardboard Recycling',
+            title: 'Paper & Cardboard Collection',
             icon: FileText,
             types: ['Office Paper', 'Cardboard Boxes', 'Newspapers', 'Magazines'],
             process: 'Collection → Sorting → Pulping → Cleaning → De-inking → Drying',

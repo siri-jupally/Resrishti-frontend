@@ -45,35 +45,35 @@ const ImpactDashboard = () => {
   const impacts = [
     {
       icon: TrendingUp,
-      value: counts.wasteDiverted.toLocaleString(),
-      label: 'Tons of Waste Diverted',
-      sublabel: 'from landfills',
+      value: '12,000+',
+      label: 'Tons of Plastic Recycled',
+      sublabel: 'processed & recovered',
+      color: 'from-orange-500 to-red-600',
+      bgColor: 'bg-orange-50'
+    },
+    {
+      icon: Leaf,
+      value: '45,000+',
+      label: 'Total Waste Diverted',
+      sublabel: 'from landfills annually',
       color: 'from-green-500 to-emerald-600',
       bgColor: 'bg-green-50'
     },
     {
-      icon: Wind,
-      value: counts.emissions.toLocaleString(),
-      label: 'Tons CO₂e Emissions Reduced',
-      sublabel: 'greenhouse gas equivalent',
+      icon: Zap,
+      value: '12 GWh',
+      label: 'Clean Energy Generated',
+      sublabel: 'powering local communities',
       color: 'from-blue-500 to-cyan-600',
       bgColor: 'bg-blue-50'
     },
     {
-      icon: Zap,
-      value: counts.energy.toLocaleString(),
-      label: 'MWh Energy Generated',
-      sublabel: 'renewable energy',
-      color: 'from-amber-500 to-orange-600',
-      bgColor: 'bg-amber-50'
-    },
-    {
-      icon: Leaf,
-      value: counts.clients.toLocaleString() + '+',
-      label: 'Corporate Partners',
-      sublabel: 'across South India',
-      color: 'from-teal-500 to-green-600',
-      bgColor: 'bg-teal-50'
+      icon: Wind,
+      value: '15,000+',
+      label: 'CO₂ Emissions Saved',
+      sublabel: 'tons of carbon offset',
+      color: 'from-purple-500 to-indigo-600',
+      bgColor: 'bg-purple-50'
     }
   ];
 

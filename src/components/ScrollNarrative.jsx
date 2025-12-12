@@ -26,7 +26,7 @@ const ScrollNarrative = () => {
             icon: Leaf,
             number: "02",
             title: "Science Meets Sustainability",
-            description: "Four CSIR-IICT validated technologies: Accelerated Composting, Biogas Generation, Pyrolysis, and Advanced Recycling. Research-backed, efficiency-proven.",
+            description: "Four CSIR-IICT validated technologies: Accelerated Composting, Biogas Generation, and Advanced Recycling. Research-backed, efficiency-proven.",
             stat: "4",
             statLabel: "Proprietary Technologies",
             gradient: "from-teal-600 to-green-600",

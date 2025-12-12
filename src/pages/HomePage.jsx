@@ -9,6 +9,7 @@ import USPSection from '../components/USPSection';
 import ImpactDashboard from '../components/ImpactDashboard';
 import TestimonialsSection from '../components/TestimonialsSection';
 import IndustryPartnersSection from '../components/IndustryPartnersSection';
+import CreditsSection from '../components/CreditsSection';
 import Footer from '../components/Footer';
 
 const HomePage = () => {
@@ -24,6 +25,7 @@ const HomePage = () => {
       <ImpactDashboard />
       <TestimonialsSection />
       <IndustryPartnersSection />
+      <CreditsSection />
       <Footer />
     </div>
   );
