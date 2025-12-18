@@ -7,17 +7,26 @@ ARG VITE_ADMIN_PASSWORD
 ENV REACT_APP_MODE_ENV=${REACT_APP_MODE_ENV}
 ENV VITE_API_URL_SERVER=${VITE_API_URL_SERVER}
 ENV VITE_ADMIN_PASSWORD=${VITE_ADMIN_PASSWORD}
-#build
+
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
 
-#serve with nginix
+# ---- NGINX ----
 FROM nginx:1.29.1-alpine
+
+# Remove default config
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copy our SPA config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copy built files
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
-COPY --from=build /app/dist ./
+COPY --from=build /app/dist .
+
 EXPOSE 80
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
