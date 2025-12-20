@@ -34,7 +34,7 @@ jobs:
         run: >
           docker run -d 
           --restart unless-stopped 
-          -p 80:80    
+          -p 5173:80    
           --name reactjs-app-container sirijupally/reactjs-app:latest
           
       - name: Clean up old images
