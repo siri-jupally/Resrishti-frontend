@@ -291,7 +291,7 @@ const AboutPreview = () => {
               { id: 11, title: 'Sustainable Cities and Communities', img: '/images/sdg/11.png' },
               { id: 12, title: 'Responsible Consumption and Production', img: '/images/sdg/12.png' },
               { id: 13, title: 'Climate Action', img: '/images/sdg/13.png' },
-              { id: 15, title: 'Life on Land', img: '/public/15.png' }
+              { id: 15, title: 'Life on Land', img: '/images/sdg/15.png' }
             ].map((sdg, index) => (
               <div
                 key={index}
