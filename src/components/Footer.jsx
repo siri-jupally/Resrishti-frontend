@@ -106,7 +106,7 @@ const Footer = () => {
               <li>
                 <Link to="/facilities/ewaste-foam-thermocol" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
                   <Recycle className="w-4 h-4 text-emerald-500" />
-                  E-waste Foam & Thermocol Recycling
+                  E-Waste Foam & Thermocol Recycling 
                 </Link>
               </li>
               <li>

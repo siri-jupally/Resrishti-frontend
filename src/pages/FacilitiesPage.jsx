@@ -75,7 +75,7 @@ const FacilitiesPage = () => {
         {
             id: 'ewaste-foam-thermocol',
             icon: Layers,
-            title: 'E-Waste Foam & Thermocol (EPS)',
+            title: 'E-Waste Foam & Thermocol Recycling (EPS)',
             subtitle: 'Specialized Material Recovery',
             capacity: '1-2 Tons/day',
             output: 'Densified Blocks',

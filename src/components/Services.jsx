@@ -111,7 +111,7 @@ const Services = () => {
     },
     {
       icon: Layers,
-      title: 'E-Waste Foam & Thermocol (EPS)',
+      title: 'E-Waste Foam & Thermocol Recycling (EPS)',
       description: 'Specialized facility for reducing volume of problematic foam waste and recovering materials for reuse.',
       color: 'from-purple-500 to-indigo-600',
       bgColor: 'bg-purple-50',

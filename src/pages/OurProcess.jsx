@@ -418,7 +418,7 @@ const OurProcess = () => {
                             <p className="text-slate-400 text-sm">Complete waste diversion through integrated technologies</p>
                         </div>
                         <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 hover:border-emerald-500 transition-all">
-                            <div className="text-4xl font-black text-emerald-400 mb-2">4</div>
+                            <div className="text-4xl font-black text-emerald-400 mb-2">5</div>
                             <p className="text-white font-semibold mb-1">Core Technologies</p>
                             <p className="text-slate-400 text-sm">Complementary systems working in harmony</p>
                         </div>
