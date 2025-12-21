@@ -3,14 +3,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import HomePage from './pages/HomePage';
 import FacilitiesPage from './pages/FacilitiesPage';
-import AACPage from './pages/AACPage';
+import AACPage from './pages/AACPage'
 import AGRPage from './pages/AGRPage';
-import FoamEwastePage from './pages/FoamEwastePage';
 import RecyclingPage from './pages/RecyclingPage';
 import OurProcess from './pages/OurProcess';
 import ImpactDashboard from './pages/ImpactDashboard';
 import ReportsCertifications from './pages/ReportsCertifications';
 import ClientsIndustries from './pages/ClientsIndustries';
+import PlasticRecyclingPage from './pages/PlasticRecyclingPage';
+import EwasteFoamThermocolPage from './pages/EwasteFoamThermocolPage';
+import BulkPaperPage from './pages/BulkPaperPage';
 import Blogs from './pages/Blogs';
 import BlogDetail from './pages/BlogDetail';
 import ContactPage from './pages/ContactPage';
@@ -28,8 +30,10 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/facilities" element={<FacilitiesPage />} />
           <Route path="/facilities/aac" element={<AACPage />} />
+          <Route path="/facilities/plastic-recycling" element={<PlasticRecyclingPage />} />
+          <Route path="/facilities/ewaste-foam-thermocol" element={<EwasteFoamThermocolPage />} />
+          <Route path="/facilities/bulk-paper-waste" element={<BulkPaperPage />} />
           <Route path="/facilities/agr" element={<AGRPage />} />
-          <Route path="/facilities/foam-ewaste-recycling" element={<FoamEwastePage />} />
           <Route path="/facilities/recycling" element={<RecyclingPage />} />
           <Route path="/process" element={<OurProcess />} />
           <Route path="/impact" element={<ImpactDashboard />} />

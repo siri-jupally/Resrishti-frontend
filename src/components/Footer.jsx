@@ -98,21 +98,21 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/facilities/recycling" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                <Link to="/facilities/plastic-recycling" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
                   <Recycle className="w-4 h-4 text-emerald-500" />
-                  Dry Waste Recycling
+                  Plastic Recycling
                 </Link>
               </li>
               <li>
-                <Link to="/facilities/foam-ewaste-recycling" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                <Link to="/facilities/ewaste-foam-thermocol" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
                   <Recycle className="w-4 h-4 text-emerald-500" />
-                  Foam & E-waste Recycling
+                  E-waste Foam & Thermocol Recycling
                 </Link>
               </li>
               <li>
-                <Link to="/facilities" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
+                <Link to="/facilities/bulk-paper-waste" className="hover:text-emerald-400 transition-colors flex items-center gap-2">
                   <Recycle className="w-4 h-4 text-emerald-500" />
-                  Alternative Fuel (AFRF)
+                  Bulk Paper Waste Collection 
                 </Link>
               </li>
             </ul>

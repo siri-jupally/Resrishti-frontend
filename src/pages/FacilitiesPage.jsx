@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
-import { Leaf, Zap, Droplets, Flame, Recycle, Sun, Shield, ArrowRight, CheckCircle, Factory, TrendingUp, Package, Layers, Cpu } from 'lucide-react';
+import { Leaf, Zap, Droplets, Flame, Recycle, Sun, Shield, ArrowRight, CheckCircle, Factory, TrendingUp, Package, Layers, Cpu, Shrink } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Button } from '../components/ui/button';
@@ -59,30 +59,45 @@ const FacilitiesPage = () => {
         },
 
         {
-            id: 'recycling-foam-ewaste',
-            icon: Layers,
-            title: 'Foam & E-waste Recycling',
-            subtitle: 'Specialized Material Recovery',
-            capacity: 'Collection & Processing',
-            output: 'Safe Disposal/Recovery',
-            description: 'Integrated facility for PU foam recovery and authorized e-waste collection. We ensure eco-friendly recycling of mattresses/foam and safe transfer of electronic waste to certified recyclers.',
-            highlights: ['PU Foam Recovery', 'Mattress Recycling', 'Authorized E-waste Collection', 'Data Security'],
-            color: 'pink',
-            gradient: 'from-pink-600 to-rose-600',
-            link: '/facilities/foam-ewaste-recycling'
-        },
-        {
-            id: 'recycling-dry-waste',
+            id: 'plastic-recycling',
             icon: Recycle,
-            title: 'Dry Waste Recycling',
-            subtitle: 'Bulk Collection Service',
-            capacity: 'Bulk Collection',
-            output: 'Authorized Transfer',
-            description: 'We are bulk waste collectors for paper and cardboard. We do not recycle paper but ensure it reaches authorized recycling mills.',
-            highlights: ['Bulk Collection', 'Cardboard Recovery', 'Paper Sorting', 'Authorized Transfer'],
+            title: 'Plastic Recycling Unit',
+            subtitle: 'Mechanical Recycling System',
+            capacity: 'Multi-Polymer Processing',
+            output: 'Granules & Flakes',
+            description: 'GreenEarth processes recyclable plastic waste through a mechanical recycling system, recovering plastics and reintroducing them into the manufacturing cycle instead of sending them to landfills.',
+            highlights: ['PET & Films', 'HDPE/LDPE/PP', 'Circular Economy', 'Make-in-India'],
+            color: 'orange',
+            gradient: 'from-orange-500 to-amber-500',
+            link: '/facilities/plastic-recycling'
+        },
+
+        {
+            id: 'ewaste-foam-thermocol',
+            icon: Layers,
+            title: 'E-Waste Foam & Thermocol (EPS)',
+            subtitle: 'Specialized Material Recovery',
+            capacity: '1-2 Tons/day',
+            output: 'Densified Blocks',
+            description: 'Recover and recycle low-density, non-biodegradable foam waste generated from electronic waste and packaging materials.',
+            highlights: ['E-Waste Foam', 'EPS/Thermocol', '90-95% Vol Reduction', 'Circular Reuse'],
+            color: 'purple',
+            gradient: 'from-purple-600 to-indigo-600',
+            link: '/facilities/ewaste-foam-thermocol'
+        },
+
+        {
+            id: 'bulk-paper-collection',
+            icon: Package,
+            title: 'Bulk Paper Waste Collection',
+            subtitle: 'Organized Collection Service',
+            capacity: 'As per requirements',
+            output: 'Recyclable Bales',
+            description: 'GreenEarth manages bulk paper waste through organized collection and channelization service. We ensure paper materials are recovered and diverted from landfills.',
+            highlights: ['Office Paper', 'Cartons/Cardboard', 'Bulk Collection', 'Authorized Channelization'],
             color: 'teal',
             gradient: 'from-teal-600 to-emerald-600',
-            link: '/facilities/recycling'
+            link: '/facilities/bulk-paper-waste'
         }
     ];
 
@@ -104,7 +119,7 @@ const FacilitiesPage = () => {
 
     const stats = [
         { value: '100%', label: 'Zero Landfill Commitment', icon: TrendingUp },
-        { value: '4', label: 'Integrated Technologies', icon: Factory },
+        { value: '5', label: 'Integrated Technologies', icon: Factory },
         { value: '1,800+', label: 'Tons Processed Annually', icon: Recycle },
         { value: '150+', label: 'Corporate Partners', icon: CheckCircle }
     ];
@@ -168,7 +183,7 @@ const FacilitiesPage = () => {
                             Core Technologies
                         </h2>
                         <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                            Four complementary waste processing technologies ensuring complete resource recovery and zero landfill impact
+                            Five complementary waste processing technologies ensuring complete resource recovery and zero landfill impact
                         </p>
                     </div>
 

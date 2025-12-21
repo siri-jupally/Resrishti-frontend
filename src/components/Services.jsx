@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Leaf, Droplets, Flame, Fuel, ArrowRight, Package, Layers, Cpu } from 'lucide-react';
+import { Leaf, Droplets, Flame, Fuel, ArrowRight, Package, Layers, Cpu, Recycle } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -101,31 +101,31 @@ const Services = () => {
       hoverShadow: 'hover:shadow-blue-500/20'
     },
     {
+      icon: Recycle,
+      title: 'Plastic Recycling Unit',
+      description: 'Mechanical recycling system recovering PET, HDPE, LDPE, and PP plastics into high-quality granules for manufacturing.',
+      color: 'from-orange-500 to-amber-600',
+      bgColor: 'bg-orange-50',
+      iconColor: 'text-orange-600',
+      hoverShadow: 'hover:shadow-orange-500/20'
+    },
+    {
+      icon: Layers,
+      title: 'E-Waste Foam & Thermocol (EPS)',
+      description: 'Specialized facility for reducing volume of problematic foam waste and recovering materials for reuse.',
+      color: 'from-purple-500 to-indigo-600',
+      bgColor: 'bg-purple-50',
+      iconColor: 'text-purple-600',
+      hoverShadow: 'hover:shadow-purple-500/20'
+    },
+    {
       icon: Package,
-      title: 'Dry Waste Recycling',
-      description: 'Comprehensive recycling of plastic, thermocol, and paper waste into high-quality raw materials.',
+      title: 'Bulk Paper Waste Collection',
+      description: 'Organized bulk collection and channelization service for office paper, cardboard, and cartons to authorized recyclers.',
       color: 'from-teal-500 to-emerald-600',
       bgColor: 'bg-teal-50',
       iconColor: 'text-teal-600',
       hoverShadow: 'hover:shadow-teal-500/20'
-    },
-    {
-      icon: Layers,
-      title: 'Foam & E-waste Recycling',
-      description: 'Specialized recovery of PU foam and authorized collection of electronic waste.',
-      color: 'from-pink-500 to-purple-600',
-      bgColor: 'bg-pink-50',
-      iconColor: 'text-pink-600',
-      hoverShadow: 'hover:shadow-pink-500/20'
-    },
-    {
-      icon: Fuel,
-      title: 'Alternative Fuel & Raw Material (AFRF)',
-      description: 'Converting non-recyclable waste into high-calorific alternative fuel for cement and power industries.',
-      color: 'from-amber-500 to-yellow-600',
-      bgColor: 'bg-amber-50',
-      iconColor: 'text-amber-600',
-      hoverShadow: 'hover:shadow-amber-500/20'
     }
   ];
 

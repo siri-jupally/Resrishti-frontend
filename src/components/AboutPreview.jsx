@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Target, Eye, Award, Users } from 'lucide-react';
+import { Target, Eye, Award, Users, Zap, Building2, Recycle, Globe, TreeDeciduous } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import AnimatedCounter from './AnimatedCounter';
 
@@ -285,15 +285,24 @@ const AboutPreview = () => {
           <p className="text-emerald-100 text-center mb-6">
             Our operations directly contribute to multiple UN SDGs, creating measurable positive impact
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {sdgs.map((sdg, index) => (
+          <div className="flex flex-wrap justify-center gap-6">
+            {[
+              { id: 7, title: 'Affordable and Clean Energy', img: '/images/sdg/7.png' },
+              { id: 11, title: 'Sustainable Cities and Communities', img: '/images/sdg/11.png' },
+              { id: 12, title: 'Responsible Consumption and Production', img: '/images/sdg/12.png' },
+              { id: 13, title: 'Climate Action', img: '/images/sdg/13.png' },
+              { id: 15, title: 'Life on Land', img: '/public/15.png' }
+            ].map((sdg, index) => (
               <div
                 key={index}
-                className="sdg-badge group bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/20 hover:border-emerald-400/50 hover:scale-110 transition-all duration-300 cursor-pointer"
+                className="group relative w-40 h-40 rounded-xl overflow-hidden shadow-lg hover:scale-110 hover:shadow-2xl transition-all duration-300 cursor-pointer bg-white"
               >
-                <span className="text-white font-medium text-sm group-hover:text-emerald-300 transition-colors">
-                  {sdg}
-                </span>
+                <img
+                  src={sdg.img}
+                  alt={sdg.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
               </div>
             ))}
           </div>
